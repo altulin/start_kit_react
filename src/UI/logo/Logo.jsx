@@ -1,19 +1,19 @@
 import React from "react";
 import style from "./Logo.module.scss";
 import clsx from "clsx";
-
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import ImgWithFallback from "../image/img_webp";
 
 function Logo({ parent }) {
   return (
-    <Link
+    <HashLink
       className={clsx(style.logo, style[`logo--${parent}`])}
-      to={"/"}
+      to={"/#top"}
       aria-label="logo"
+      smooth
     >
       <ImgWithFallback />
-    </Link>
+    </HashLink>
   );
 }
 
