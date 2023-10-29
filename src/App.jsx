@@ -4,6 +4,7 @@ import Template from "./templates_pages/Template";
 import { setIsMobileOrTablet } from "./store/appSlice";
 import { useDispatch } from "react-redux";
 import { useMediaQuery } from "react-responsive"; // разрешение экрана
+import HomePage from "./pages/HomePage";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Template />}>
-        {/* <Route index element={<HomePage />} /> */}
+        <Route index element={<HomePage />} />
         {/* <Route path="/private" element={<Private />} /> */}
       </Route>
     </Routes>
