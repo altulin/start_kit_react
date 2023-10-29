@@ -1,26 +1,24 @@
-import clsx from "clsx";
+import ErrorText from "./ErrorText";
+import inputClass from "./inputClass";
 
-const InputText = ({ formik, placeholder, name, label }) => {
+const InputText = ({ formik, placeholder, name, label, handleInput }) => {
   return (
     <div className="form__field input-block">
       <label className="input-block__label">
         <span className="input-block__name">{label}</span>
         <input
           type="text"
-          className={clsx(
-            "input-block__input",
-            formik.errors[`${name}`] && "input-block__input--error"
-          )}
+          className={inputClass(formik, name)}
           placeholder={placeholder}
           name={name}
+          onInput={handleInput}
           value={formik.values[`${name}`]}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
       </label>
-      {formik.errors[`${name}`] ? (
-        <p className="input-block__error">{formik.errors[`${name}`]}</p>
-      ) : null}
+
+      <ErrorText formik={formik} name={name} />
     </div>
   );
 };
