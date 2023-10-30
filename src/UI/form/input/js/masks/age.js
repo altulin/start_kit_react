@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const isNumber = (value) => {
   return /^[\.\d]+$/g.test(value);
 };

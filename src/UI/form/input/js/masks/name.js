@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const isLetter = (value) => {
   return /^[А-Яа-яЁёa-zA-Z\-]+$/g.test(value);
 };
