@@ -1,14 +1,18 @@
 import clsx from "clsx";
 import style from "./Promo.module.scss";
 import { utcToZonedTime } from "date-fns-tz";
+import { intervalToDuration } from "date-fns";
+import { useRenderCount } from "@uidotdev/usehooks";
 
-import { getStartDay } from "../../../hooks/getTimeStatus";
+import {
+  getStartDay,
+  parseDate,
+  makeInterval,
+} from "../../../hooks/getTimeStatus";
 
 const Promo = () => {
-  const startDate = "2024-02-08";
-  const current = utcToZonedTime(new Date(), "Europe/Moscow");
-
-  console.log(current);
+  console.log("useRenderCount: " + useRenderCount());
+  // const startDate = "2024-02-08";
 
   return (
     <section className={clsx(style.promo)}>

@@ -3,47 +3,35 @@ import { setAction, setTimeAction } from "../store/appSlice";
 import { useDispatch } from "react-redux";
 import {
   intervalToDuration,
-  formatDistanceStrict,
+  differenceInDays,
   startOfDay,
   endOfDay,
   isAfter,
+  parse,
 } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 
-export const getStartDay = (date) => {
-  // console.log(Date.parse(date));
-  return startOfDay(new Date(Date.parse(date)));
-};
-
-export const getEndDay = (date) => {
-  return endOfDay(new Date(Date.parse(date)));
+export const parseDate = (date, pattern) => {
+  return parse(date, pattern, new Date());
 };
 
 export const makeInterval = (start, end) => {
-  const { months, days, hours, minutes } = intervalToDuration({
-    start: start,
-    end: end,
+  const { hours, minutes } = intervalToDuration({
+    start,
+    end,
   });
 
-  const resultDays = formatDistanceStrict(start, end, {
-    unit: "day",
-  }).replace(/[ a-z]/g, "");
+  const days = differenceInDays(end, start);
 
-  const getVal = (val) => {
-    let data;
-    if (Number(val) > 9) {
-      data = val.toString().split("");
-    } else {
-      data = `0${val.toString().split("")}`.split("");
-    }
-
-    return data;
-  };
+  function n(n) {
+    const value = (n > 9 ? "" : "0") + n;
+    return value.split("");
+  }
 
   return {
-    days: months > 0 ? getVal(resultDays) : getVal(days),
-    hours: getVal(hours),
-    minutes: getVal(minutes),
+    days: n(days),
+    hours: n(hours),
+    minutes: n(minutes),
   };
 };
 
@@ -55,8 +43,8 @@ export const useGetTimeStatus = ({ startDate, endDate }) => {
       return;
     }
 
-    const startDayStartAction = getStartDay(startDate);
-    const endDayEndAction = getEndDay(endDate);
+    const startDayStartAction = startOfDay(startDate);
+    const endDayEndAction = endOfDay(endDate);
     const current = utcToZonedTime(new Date(), "Europe/Moscow");
 
     if (isAfter(current, startDayStartAction)) {
@@ -75,3 +63,7 @@ export const useGetTimeStatus = ({ startDate, endDate }) => {
     }
   }, [dispatch, endDate, startDate]);
 };
+
+// const startDate = getStartDay(parseDate("20.12.2023", "dd.MM.yyyy"));
+// const current = utcToZonedTime(new Date(), "Europe/Moscow");
+// console.log(makeInterval(current, startDate));
