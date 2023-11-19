@@ -13,35 +13,43 @@ const Input = ({
   defaultChecked,
   value,
   onChange,
+  disabled,
+  readOnly,
+  className,
 }) => {
-  const getClass = () => {
-    let clName;
-
-    switch (type) {
-      case "radio":
-        clName = "radio";
-        break;
-
-      case "checkbox":
-        clName = "checkbox";
-        break;
-
-      default:
-        clName = "input-block";
-    }
-
-    return clName;
-  };
-
   return (
-    <div className={clsx("form__field", getClass())}>
-      <label className={clsx(`${getClass()}__label`)}>
-        <span className={clsx(`${getClass()}__name`)}>{label}</span>
+    <div
+      className={clsx(
+        "input-block",
+        `input-block--${type}`,
+        `${type}`,
+        className
+      )}
+    >
+      <label
+        className={clsx(
+          "input-block__label",
+          `input-block__label--${type}`,
+          `${type}__label`
+        )}
+      >
+        <span
+          className={clsx(
+            "input-block__name",
+            `input-block__name--${type}`,
+            `${type}__name`
+          )}
+        >
+          {label}
+        </span>
         <input
           type={type}
           className={clsx(
-            `${getClass()}__input`,
-            formik.errors[`${name}`] && `${getClass()}__input--error`
+            "input-block__input",
+            `input-block__input--${type}`,
+            `${type}__input`,
+            formik.errors[`${name}`] && "input-block__input--error",
+            formik.errors[`${name}`] && `${type}__input--error`
           )}
           placeholder={placeholder}
           name={name}
@@ -51,6 +59,8 @@ const Input = ({
           onBlur={formik.handleBlur}
           defaultChecked={defaultChecked}
           onKeyDown={handlKeyDown}
+          disabled={disabled}
+          readOnly={readOnly}
         />
         {children}
       </label>

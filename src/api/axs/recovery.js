@@ -1,11 +1,11 @@
 import axs from "../service/AXS";
 import {
   postSendVerificationCode,
-  postSendVerifiCode,
-  postSaveProfile,
+  postVerifyCode,
+  postUpdatePassword,
 } from "../service/path";
 
-export const regSendVerificationCode = (phoneNumber) => {
+export const recSendVerificationCode = (phoneNumber) => {
   return axs.post(
     postSendVerificationCode,
     {
@@ -17,9 +17,9 @@ export const regSendVerificationCode = (phoneNumber) => {
   );
 };
 
-export const regVerifyCode = (verificationToken, verificationCode) => {
+export const recVerifyCode = (verificationToken, verificationCode) => {
   return axs.post(
-    postSendVerifiCode,
+    postVerifyCode,
     {
       verificationToken,
       verificationCode,
@@ -30,25 +30,12 @@ export const regVerifyCode = (verificationToken, verificationCode) => {
   );
 };
 
-export const regSaveProfile = (
-  verificationToken,
-  firstName,
-  lastName,
-  email,
-  password,
-  gender,
-  birthDate
-) => {
+export const recUpdatePassword = (verificationToken, password) => {
   return axs.post(
-    postSaveProfile,
+    postUpdatePassword,
     {
       verificationToken,
-      firstName,
-      lastName,
-      email,
       password,
-      gender,
-      birthDate,
     },
     {
       headers: {},

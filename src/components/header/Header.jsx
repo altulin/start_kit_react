@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import style from "./Header.module.scss";
 import clsx from "clsx";
 import Links from "./Links";

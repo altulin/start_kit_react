@@ -1,5 +1,5 @@
 import axs from "../service/AXS";
-import { getUserMe, putUserMe, patchPasswordChange } from "../service/path";
+import { getUserMe, patchPasswordChange } from "../service/path";
 
 export const meGetUserMe = (jwt) => {
   return axs.get(
@@ -13,25 +13,25 @@ export const meGetUserMe = (jwt) => {
   );
 };
 
-export const mePutUserMe = (
-  jwt,
-  firstName,
-  lastName,
-  email,
-  gender,
-  birthDate
-) => {
-  return axs.put(
-    putUserMe,
-    { firstName, lastName, email, gender, birthDate },
+// export const mePutUserMe = (
+//   jwt,
+//   firstName,
+//   lastName,
+//   email,
+//   gender,
+//   birthDate
+// ) => {
+//   return axs.put(
+//     putUserMe,
+//     { firstName, lastName, email, gender, birthDate },
 
-    {
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-      },
-    }
-  );
-};
+//     {
+//       headers: {
+//         Authorization: `Bearer ${jwt}`,
+//       },
+//     }
+//   );
+// };
 
 export const mePatchPassChange = (jwt, password) => {
   return axs.patch(

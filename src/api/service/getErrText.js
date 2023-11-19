@@ -1,9 +1,19 @@
-import { store } from "..";
-import { errorShow } from "../appSlice";
+import { store } from "../../store";
+import { setErrorModal } from "../../store/appSlice";
+import { setUser } from "../../store/appSlice";
 
 export const getErrText = (error) => {
   let errorText = "";
   switch (error.response.status) {
+    case 400:
+      errorText = "Данные отправлены неверно";
+      break;
+
+    case 401:
+      localStorage.clear();
+      store.dispatch(setUser(null));
+      return;
+
     case 430:
       errorText = "Пользователь не найден";
       break;
@@ -61,5 +71,5 @@ export const getErrText = (error) => {
       errorText = "Ошибка соединения с сервером";
   }
 
-  store.dispatch(errorShow(errorText));
+  store.dispatch(setErrorModal(errorText));
 };

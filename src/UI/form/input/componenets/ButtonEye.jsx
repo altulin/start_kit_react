@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as IconEye } from "../../../../images/svg/eye.svg";
 import { ReactComponent as IconEyeOff } from "../../../../images/svg/eye-off.svg";
 

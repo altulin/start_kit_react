@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 
 import Promo from "../components/home/Promo/Promo";
 

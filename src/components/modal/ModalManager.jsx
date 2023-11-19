@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import ModalAuth1 from "./auth/ModalAuth1";
 // import ModalError from "./error/ModalError";

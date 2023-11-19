@@ -1,4 +1,3 @@
-import React from "react";
 import clsx from "clsx";
 import style from "./Header.module.scss";
 import { useSelector } from "react-redux";

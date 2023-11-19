@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Modal.module.scss";
 import clsx from "clsx";
 import ModalPortal from "../ModalPortal";

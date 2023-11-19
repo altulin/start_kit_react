@@ -1,10 +1,10 @@
 import axs from "../service/AXS";
 import { postSend, getFaq } from "../service/path";
 
-export const feedbackFaq = (limit, offset) => {
+export const feedbackFaq = () => {
   return axs.get(
     getFaq,
-    { limit, offset },
+    {},
     {
       headers: {},
     }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Template from "./templates_pages/Template";
 import { setIsMobileOrTablet } from "./store/appSlice";
@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive"; // разрешение экрана
 import HomePage from "./pages/HomePage";
 import ModalManager from "./components/modal/ModalManager";
+import RequireAuth from "./hoc/RequireAuth";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -40,7 +41,11 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Template />}>
           <Route index element={<HomePage />} />
-          {/* <Route path="/private" element={<Private />} /> */}
+
+          <Route
+            path="/private"
+            element={<RequireAuth>{/* <Private /> */}</RequireAuth>}
+          />
         </Route>
       </Routes>
       <ModalManager modal={modalOpen} />
