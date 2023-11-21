@@ -7,6 +7,7 @@ import Nav from "./Nav";
 
 const Header = () => {
   const [isMenu, setMenu] = useState(true);
+
   return (
     <header className={clsx(style.header)}>
       <div className={clsx(style.header__inner)}>

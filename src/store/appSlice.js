@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const body = document.querySelector("body");
+// const body = document.querySelector("body");
 
 const listModal = ["auth"];
 const initModal = (state) => {
@@ -24,18 +24,18 @@ const appSlice = createSlice({
 
   reducers: {
     stepTo(state, action) {
-      if (body) {
-        body.classList.add("isModal");
-      }
+      // if (body) {
+      //   body.classList.add("isModal");
+      // }
 
       state.modalState = initModal();
       state.modalState[`${action.payload.type}`].step = action.payload.step;
     },
 
     clearAllStep(state) {
-      if (body) {
-        body.classList.remove("isModal");
-      }
+      // if (body) {
+      //   body.classList.remove("isModal");
+      // }
 
       state.modalState = initModal();
     },
