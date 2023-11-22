@@ -1,5 +1,5 @@
-import { ReactComponent as IconEye } from "../../../../images/svg/eye.svg";
-import { ReactComponent as IconEyeOff } from "../../../../images/svg/eye-off.svg";
+import { ReactComponent as IconEye } from "@/images/svg/eye.svg";
+import { ReactComponent as IconEyeOff } from "@/images/svg/eye-off.svg";
 
 const ButtonEye = ({ isTypeText, setType }) => {
   return (

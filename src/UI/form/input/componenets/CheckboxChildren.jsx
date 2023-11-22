@@ -1,4 +1,4 @@
-import { ReactComponent as CheckIcon } from "../../../../images/svg/eye.svg";
+import { ReactComponent as CheckIcon } from "@/images/svg/eye.svg";
 
 const CheckboxChildren = () => {
   return (

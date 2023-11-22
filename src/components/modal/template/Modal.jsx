@@ -1,10 +1,10 @@
 import style from "./Modal.module.scss";
 import clsx from "clsx";
 import ModalPortal from "../ModalPortal";
-// import { ReactComponent as Icon } from "../../../images/svg/close.svg";
+// import { ReactComponent as Icon } from "@/images/svg/close.svg";
 import { useDispatch } from "react-redux";
-import { clearAllStep } from "../../../store/appSlice";
-import useLockBodyScroll from "../../../hooks/lockBodyScroll";
+import { clearAllStep } from "@/store/appSlice";
+import useLockBodyScroll from "@/hooks/lockBodyScroll";
 
 const Modal = ({ children, open = false }) => {
   const dispatch = useDispatch();

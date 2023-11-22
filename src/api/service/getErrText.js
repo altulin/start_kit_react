@@ -1,6 +1,6 @@
-import { store } from "../../store";
-import { setErrorModal } from "../../store/appSlice";
-import { setUser } from "../../store/appSlice";
+import { store } from "@/store";
+import { setErrorModal } from "@/store/appSlice";
+import { setUser } from "@/store/appSlice";
 
 export const getErrText = (error) => {
   let errorText = "";

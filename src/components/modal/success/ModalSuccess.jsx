@@ -1,8 +1,8 @@
 import Modal from "../template/Modal";
 import style from "../template/Modal.module.scss";
 import clsx from "clsx";
-import { ReactComponent as IconSucc } from "../../../images/svg/success.svg";
-import BtnCheckBig from "../../../UI/button/BtnCheckBig";
+import { ReactComponent as IconSucc } from "@/images/svg/success.svg";
+import BtnCheckBig from "@/UI/button/BtnCheckBig";
 import { useSelector } from "react-redux";
 
 const ModalSuccess = ({ open }) => {

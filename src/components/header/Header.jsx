@@ -2,8 +2,8 @@ import { useState } from "react";
 import style from "./Header.module.scss";
 import clsx from "clsx";
 import Links from "./Links";
-import Logo from "../../UI/logo/Logo";
 import Nav from "./Nav";
+import Logo from "@/UI/logo/Logo";
 
 const Header = () => {
   const [isMenu, setMenu] = useState(true);

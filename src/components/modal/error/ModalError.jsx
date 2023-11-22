@@ -2,7 +2,7 @@ import Modal from "../template/Modal";
 import style from "../template/Modal.module.scss";
 import clsx from "clsx";
 import BackBlock from "../template/BackBlock";
-import BtnCheckBig from "../../../UI/button/BtnCheckBig";
+import BtnCheckBig from "@/UI/button/BtnCheckBig";
 import { useSelector } from "react-redux";
 
 const ModalError = ({ open }) => {

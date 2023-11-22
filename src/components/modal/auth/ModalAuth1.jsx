@@ -2,7 +2,7 @@ import Modal from "../template/Modal";
 import style from "../template/Modal.module.scss";
 import clsx from "clsx";
 import { useDispatch } from "react-redux";
-import { stepTo } from "../../../store/appSlice";
+import { stepTo } from "@/store/appSlice";
 
 const ModalAuth1 = ({ open }) => {
   const dispatch = useDispatch();

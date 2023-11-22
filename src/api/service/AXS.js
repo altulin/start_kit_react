@@ -1,6 +1,6 @@
 import axios from "axios";
-import { setUser, setErrorCode } from "../../store/appSlice";
-import { store } from "../../store";
+import { setUser, setErrorCode } from "@/store/appSlice";
+import { store } from "@/store";
 import { getErrText } from "./getErrText";
 
 const axs = axios.create({
